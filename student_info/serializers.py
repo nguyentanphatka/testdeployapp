@@ -18,7 +18,8 @@ class FaceImagesSerializer(serializers.ModelSerializer):
         fields = ['student_id', 'FaceImages']
 
     def create(self, validated_data):
-        return FaceImages.objects.create(**validated_data)
+        FaceImages = FaceImagesSerializer.create(**validated_data)
+        return FaceImages.save(self)
 
 
 class StudentSerializer(serializers.ModelSerializer):
@@ -36,7 +37,7 @@ class StudentSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         face_images_data = validated_data.pop('face_images')
-        student = Student.objects.create(**validated_data)
+        student = StudentSerializer.create(**validated_data)
         for face_image_data in face_images_data:
-            Student.objects.create(student=student, **face_image_data)
+            face_image_data = FaceImagesSerializer.create(student=student, **face_image_data)
         return student

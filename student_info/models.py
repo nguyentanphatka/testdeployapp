@@ -24,19 +24,15 @@ class FaceImages(models.Model):
         if ext == '':
             ext = '.png'
         if self.student_id:
-            filename = 'students/student_{0}{1}.{2}'.format(self.images_name, self.id, ext)
+            filename = 'students/student_{0}.{1}'.format(self.images_name, ext)
         else:
-            filename = 'students/student_{0}{1}.{2}'.format(self.images_name, self.__str__(), ext)
+            filename = 'students/student_{0}{1}.{2}'.format(self.images_name, self.images_data, ext)
         # return the whole path to the file
         return filename
 
     images_data = models.ImageField(upload_to=path_and_rename, blank=False, null=True)
-    # images_name = models.CharField(max_length=20, null=True)
-    # date_upload = models.DateTimeField(auto_now_add=True, null=True)
-    student_id = models.ForeignKey(Student, on_delete=models.CASCADE, null=True, default=1)
+    images_name = models.CharField(max_length=20, null=True, default='Noname')
+    date_upload = models.DateTimeField(auto_now_add=True, null=True)
+    student_id = models.ForeignKey(Student, on_delete=models.CASCADE, null=True)
 
     # get url and return url of image here
-
-    def __str__(self):
-        return self.images_data.url
-
