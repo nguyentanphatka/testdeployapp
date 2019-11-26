@@ -1,4 +1,4 @@
-#!c:\code\attendance\djangoapi\venv\scripts\python.exe
+#!d:\testdeployapp\venv\scripts\python.exe
 from django.core import management
 
 if __name__ == "__main__":

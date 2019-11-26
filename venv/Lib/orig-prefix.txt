@@ -1,1 +1,1 @@
-C:\Users\PC\Anaconda3
+C:\Users\nguye\AppData\Local\Programs\Python\Python36
