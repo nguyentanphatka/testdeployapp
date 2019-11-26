@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from .models import Student
-from .models import FaceImages
+from .models import FaceImagesVideo
 from django.http import HttpResponse
 from .serializers import StudentSerializer
-from .serializers import FaceImagesSerializer
+from .serializers import FaceImagesVideoSerializer
 from rest_framework.views import APIView
 from rest_framework.parsers import FormParser
 from django.http.multipartparser import MultiPartParser
@@ -21,7 +21,7 @@ class StudentView(viewsets.ModelViewSet):
 def student_show(request):
     if request.method == 'GET':
         students = Student.objects.all().order_by('student_id')
-        students_serializer = StudentSerializerSerializer(students, many=True)
+        students_serializer = StudentSerializer(students, many=True)
         return HttpResponse(status=HttpResponse.status_code)
     elif request.method == 'POST':
         students_data = HttpResponse(request)
@@ -32,36 +32,19 @@ def student_show(request):
         return HttpResponse(status=HttpResponse.status_code)
 
 
-class FaceImagesView(APIView):
-    parser_classes = (MultiPartParser, FormParser)
-    @classmethod
-    def get_extra_actions(cls):
-        return []
+class FaceImagesVideoView(viewsets.ModelViewSet):
+    queryset = FaceImagesVideo.objects.all()
+    serializer_class = FaceImagesVideoSerializer
 
-
-def get(self, request):
-    all_images = FaceImages.objects.all()
-    serializer = FaceImagesSerializer(all_images, many=True)
-    return JsonResponse(serializer.data, safe=False)
-
-
-def post(self, request, *args, **kwargs):
-    student_id = request.data['student_id']
-
-    images = dict(request.data.lists())['images_data']
-    flag = 1
-    arr = []
-    for img_name in images:
-        modified_data = modify_input_for_multiple_files(student_id,
-                                                        img_name)
-        file_serializer = ImageSerializer(data=modified_data)
-        if file_serializer.is_valid():
-            file_serializer.save()
-            arr.append(file_serializer.data)
-        else:
-            flag = 0
-
-    if flag == 1:
-        return Response(arr, status=status.HTTP_201_CREATED)
-    else:
-        return Response(arr, status=status.HTTP_400_BAD_REQUEST)
+def FaceImages_show(request):
+    if request.method == 'GET':
+        FaceImagesVideos = FaceImagesVideo.objects.all()
+        faceimagesvideo_serializer = FaceImagesVideoSerializer(FaceImagesVideos, many=True)
+        return HttpResponse(status=HttpResponse.status_code)
+    elif request.method == 'POST':
+        FaceImagesVideos_data = HttpResponse(request)
+        faceimagesvideo_serializer = FaceImagesVideoSerializer(data=FaceImagesVideos_data)
+        if faceimagesvideo_serializer.is_valid():
+            faceimagesvideo_serializer.save()
+            return HttpResponse(status=HttpResponse.status_code)
+        return HttpResponse(status=HttpResponse.status_code)

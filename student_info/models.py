@@ -15,24 +15,24 @@ class Student(models.Model):
         return self.student_id
 
 
-class FaceImages(models.Model):
-
-    def path_and_rename(self, id):
-        filename = self.images_data.name
-        ext = filename.split('.')[-1]
-        # get filename
-        if ext == '':
-            ext = '.png'
-        if self.student_id:
-            filename = 'students/student_{0}.{1}'.format(self.images_name, ext)
-        else:
-            filename = 'students/student_{0}{1}.{2}'.format(self.images_name, self.images_data, ext)
-        # return the whole path to the file
-        return filename
-
-    images_data = models.ImageField(upload_to=path_and_rename, blank=False, null=True)
-    images_name = models.CharField(max_length=20, null=True, default='Noname')
-    date_upload = models.DateTimeField(auto_now_add=True, null=True)
+class FaceImagesVideo(models.Model):
+    """
+        def path_and_rename(self, id):
+            filename = self.images_data.name
+            ext = filename.split('.')[-1]
+            # get filename
+            if ext == '':
+                ext = '.png'
+            if self.student_id:
+                filename = 'students/student_{0}.{1}'.format(self.images_name, ext)
+            else:
+                filename = 'students/student_{0}{1}.{2}'.format(self.images_name, self.images_data, ext)
+            # return the whole path to the file
+            return filename
+    """
+    imagesvideo_data = models.FileField(upload_to='media/video', blank=False, null=True)
+    imagesvideo_name = models.CharField(max_length=20, null=True, default='Noname')
+    datevideo_upload = models.DateTimeField(auto_now_add=True, null=True)
     student_id = models.ForeignKey(Student, on_delete=models.CASCADE, null=True)
 
     # get url and return url of image here
