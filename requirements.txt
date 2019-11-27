@@ -1,7 +1,11 @@
-django==2.2.7
+Django==2.2.7
 django-cors-headers==3.2.0
 djangorestframework==3.10.3
-pillow==6.2.1
-pymysql
-mysqlclient
-install\mysqlclient-1.3.12-cp36-cp36m-win_amd64.whl
+mysqlclient==1.4.6
+Pillow==6.2.1
+pip==19.3.1
+PyMySQL==0.9.3
+pytz==2019.3
+setuptools==42.0.1
+sqlparse==0.3.0
+wheel==0.33.6
