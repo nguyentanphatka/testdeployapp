@@ -86,16 +86,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mysqldatabase',
-        'USER': 'root',
-        'PASSWORD': 'Nguyentanphatka',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mysqldatabase',
         'USER': 'mysqldbuser@attendancewebapps-mysqldbserver',
         'PASSWORD': 'Linhkute123',
         'HOST': 'attendancewebapps-mysqldbserver.mysql.database.azure.com',

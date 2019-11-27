@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45db6c03-4e18-40fb-8413-6440a1bc8d43" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoAPI/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoAPI/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -108,6 +108,7 @@
       <workItem from="1574613960718" duration="52000" />
       <workItem from="1574614579116" duration="744000" />
       <workItem from="1574777600678" duration="202000" />
+      <workItem from="1574843560205" duration="282000" />
     </task>
     <servers />
   </component>
