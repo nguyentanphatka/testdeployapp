@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'student_info.apps.StudentInfoConfig',
     'teacher_info.apps.TeacherInfoConfig',
+    'course.apps.CourseConfig',
 
 ]
 
@@ -90,6 +91,9 @@ DATABASES = {
         'PASSWORD': 'Linhkute123',
         'HOST': 'attendancewebapps-mysqldbserver.mysql.database.azure.com',
         'PORT': '3306',
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        }
     }
 }
 
@@ -140,3 +144,4 @@ CORS_ORIGIN_WHITELIST = [
     "http://127.0.0.1:9000"
 ]
 AUTH_USER_MODEL = 'teacher_info.Teacher'
+# AUTH_USER_MODEL = 'student_info.Student'

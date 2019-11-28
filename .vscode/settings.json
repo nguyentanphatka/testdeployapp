@@ -33,5 +33,6 @@
         "venv.bak{,/**}",
         ".vscode{,/**}"
     ],
-    "appService.deploySubpath": ""
+    "appService.deploySubpath": "",
+    "git.ignoreLimitWarning": true
 }

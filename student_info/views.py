@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from .models import Student
-from .models import FaceImagesVideo
+from .models import StudentImagesData
 from django.http import HttpResponse
 from .serializers import StudentSerializer
-from .serializers import FaceImagesVideoSerializer
+from .serializers import StudentImagesDataSerializer
 from rest_framework.views import APIView
 from rest_framework.parsers import FormParser
 from django.http.multipartparser import MultiPartParser
@@ -32,19 +32,19 @@ def student_show(request):
         return HttpResponse(status=HttpResponse.status_code)
 
 
-class FaceImagesVideoView(viewsets.ModelViewSet):
-    queryset = FaceImagesVideo.objects.all()
-    serializer_class = FaceImagesVideoSerializer
+class StudentImagesDataView(viewsets.ModelViewSet):
+    queryset = StudentImagesData.objects.all()
+    serializer_class = StudentImagesDataSerializer
 
-def FaceImages_show(request):
+def FaceVideo_show(request):
     if request.method == 'GET':
-        FaceImagesVideos = FaceImagesVideo.objects.all()
-        faceimagesvideo_serializer = FaceImagesVideoSerializer(FaceImagesVideos, many=True)
+        face_images = StudentImagesData.objects.all()
+        face_images_serializer = StudentImagesDataSerializer(face_images, many=True)
         return HttpResponse(status=HttpResponse.status_code)
     elif request.method == 'POST':
-        FaceImagesVideos_data = HttpResponse(request)
-        faceimagesvideo_serializer = FaceImagesVideoSerializer(data=FaceImagesVideos_data)
-        if faceimagesvideo_serializer.is_valid():
-            faceimagesvideo_serializer.save()
+        face_images_data = HttpResponse(request)
+        face_images_serializer = StudentImagesDataSerializer(data=face_images_data)
+        if face_images_serializer.is_valid():
+            face_images_serializer.save()
             return HttpResponse(status=HttpResponse.status_code)
         return HttpResponse(status=HttpResponse.status_code)
