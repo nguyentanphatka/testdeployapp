@@ -17,12 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework import routers
 
+router = routers.DefaultRouter()
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', admin.site.urls),
     path('teachers/', include('teacher_info.urls')),
     path('students/', include('student_info.urls')),
-    path('courses/', include('course.urls'))
+    path('courses/', include('course.urls')),
+   #  path('',auth_views.login(user='anonymous', passwd='', acct='')
 
 ]
 if settings.DEBUG:

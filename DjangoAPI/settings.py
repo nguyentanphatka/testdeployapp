@@ -91,6 +91,7 @@ DATABASES = {
         'PASSWORD': 'Linhkute123',
         'HOST': 'attendancewebapps-mysqldbserver.mysql.database.azure.com',
         'PORT': '3306',
+        'default_charset' : "utf-8",
         'OPTIONS': {
             'sql_mode': 'traditional',
         }
@@ -143,5 +144,12 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:8080",
     "http://127.0.0.1:9000"
 ]
-AUTH_USER_MODEL = 'teacher_info.Teacher'
+AUTH_USER_MODEL = 'teacher_info.user'
 # AUTH_USER_MODEL = 'student_info.Student'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}

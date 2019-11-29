@@ -9,7 +9,6 @@ class StudentImagesDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = StudentImagesData
         fields = '__all__'
-        # fields = ['student_id', 'video_data', 'video_name']
 
 
 class StudentSerializer(serializers.ModelSerializer):
@@ -17,7 +16,6 @@ class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
         fields = '__all__'
-        # fields = ['id', 'student_id', 'student_name', 'student_email']
 
     def create(self, validated_data):
         return Student.objects.create(**validated_data)
