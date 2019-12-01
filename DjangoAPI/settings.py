@@ -144,7 +144,7 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:8080",
     "http://127.0.0.1:9000"
 ]
-AUTH_USER_MODEL = 'teacher_info.user'
+# AUTH_USER_MODEL = 'teacher_info.user'
 # AUTH_USER_MODEL = 'student_info.Student'
 
 REST_FRAMEWORK = {
